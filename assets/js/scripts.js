@@ -21,6 +21,8 @@ function getLength(x) {
     }
 }
 
+
+
 // gets text for week day
 function getDate(){
     let dayOfWeek = new Date().getDay();
@@ -42,11 +44,6 @@ function setDate() {
         h: hours
     }
 
-    // new code to stop 360 backwards rotation
-    if (seconds < previous.s) { counter.s += 1; }
-    if (minutes < previous.m) { counter.m += 1; }
-    if (hours < previous.h) { counter.h += 1; }
-
     const now = new Date();
     const currentDate = now.getDate();
     seconds = now.getSeconds();
@@ -57,9 +54,12 @@ function setDate() {
     const hoursDegrees = ((hours / 24) * 360) + 90;
 
     // remove 24 time
-    if (hours > 12) {
-        hours -= 12;
-    }
+    if (hours > 12) { hours -= 12; }
+    
+    // new code to stop 360 backwards rotation
+    if (seconds < previous.s) { counter.s += 1; }
+    if (minutes < previous.m) { counter.m += 1; }
+    if (hours < previous.h) { counter.h += 1; }
 
     // text display
     document.querySelector(".text").innerHTML = "Today is " + getDate() + ", " + getMonth() + " " 
@@ -69,7 +69,7 @@ function setDate() {
     secondHand.style.transform = `rotate(${(secondsDegrees + (360 * counter.s))}deg)`;
     minuteHand.style.transform = `rotate(${(minutesDegrees + (360 * counter.m))}deg)`;
     hourHand.style.transform = `rotate(${(hoursDegrees + (360 * counter.h))}deg)`;
-    console.log(secondsDegrees + (360 * counter.s))
+    console.log(counter.m);
 }
 
 setInterval(setDate, 1000);
