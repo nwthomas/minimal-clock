@@ -9,7 +9,7 @@ html {
 
 .clock {
     position: relative;
-    margin: 150px auto;
+    margin: 16vh auto 13vh auto;
     border: 15px solid rgb(55, 35, 244);
     border-radius: 50%;
     width: 25rem;
@@ -56,8 +56,8 @@ html {
     margin: 0 auto;
     font-family: Futura, Helvetica, sans-serif;
     font-kerning: 0.34em;
-    width: 20em;
-    height: 1em;
+    width: auto;
+    height: 3em;
     text-align: center;
     font-size: 18px;
 }
