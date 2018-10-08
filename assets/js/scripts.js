@@ -49,12 +49,12 @@ function setDate() {
     seconds = now.getSeconds();
     minutes = now.getMinutes();
     hours = now.getHours();
+
+    if (hours > 12) { hours -= 12; }
+    
     const secondsDegrees = ((seconds / 60) * 360) + 90;
     const minutesDegrees = ((minutes / 60) * 360) + 90;
-    const hoursDegrees = ((hours / 24) * 360) + 90;
-
-    // remove 24 time
-    if (hours > 12) { hours -= 12; }
+    const hoursDegrees = ((hours / 12) * 360) + 90;
     
     // new code to stop 360 backwards rotation
     if (seconds < previous.s) { counter.s += 1; }
@@ -69,7 +69,6 @@ function setDate() {
     secondHand.style.transform = `rotate(${(secondsDegrees + (360 * counter.s))}deg)`;
     minuteHand.style.transform = `rotate(${(minutesDegrees + (360 * counter.m))}deg)`;
     hourHand.style.transform = `rotate(${(hoursDegrees + (360 * counter.h))}deg)`;
-    console.log(counter.m);
 }
 
 setInterval(setDate, 1000);
