@@ -23,5 +23,5 @@ A classic and minimal implementation of a clock that also displays the time in t
 
 ## Acknowledgments
 
-* Thanks to [Wes Box](https://javascript30.com) for the inspiration.
+* Thanks to [Wes Bos](https://javascript30.com) for the inspiration.
 * Thanks Google. If I didn't have you, I doubt I could debug like a beast.
